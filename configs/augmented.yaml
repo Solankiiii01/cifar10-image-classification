@@ -1,0 +1,17 @@
+
+experiment_name: augmented
+
+dataset:
+  name: CIFAR10
+  data_dir: /content/drive/MyDrive/cifar10-data
+
+training:
+  batch_size: 64
+  epochs: 20
+  learning_rate: 0.001
+  optimizer: Adam
+  loss_function: CrossEntropyLoss
+  seed: 42
+
+augmentation:
+  enabled: true

@@ -8,12 +8,13 @@ import yaml
 from src.dataset import get_dataloaders
 from src.model import CIFAR10CNN
 
-
 def train_model(config_path, checkpoint_dir):
+  
 
     # 1. Load configuration
     with open(config_path, "r") as file:
         config = yaml.safe_load(file)
+        experiment_name = config["experiment_name"]
 
     # 2. Set random seed
     seed = config["training"]["seed"]
@@ -162,7 +163,7 @@ def train_model(config_path, checkpoint_dir):
                 },
                 os.path.join(
                     checkpoint_dir,
-                    "baseline_best.pth"
+                    f"{experiment_name}_best.pth"
                 )
             )
 
@@ -174,7 +175,7 @@ def train_model(config_path, checkpoint_dir):
         },
         os.path.join(
             checkpoint_dir,
-            "baseline_final.pth"
+            f"{experiment_name}_final.pth"
         )
     )
 
